@@ -1,0 +1,37 @@
+@Component(
+    {
+        template: `
+            <h2>{{user.name}}</h2> ----------> interpolation
+            <img [src] = 'user.imageURl'/> --------------> Property Binding
+            <button (click)="doSomething()"></button>
+        `
+    }
+)
+
+export class ProfileComponent{
+    user = {name : 'John Doe', imageUrl: 'img.com/profile.jpeg'}
+
+    doSomething(){
+
+    }
+}
+
+*****note
+
+Interpolation : used to bind data from componet to template. it is used just to display that data.
+
+Property Binding : used to bind data from componet to template. it is used when you want to bind the data with the property of a DOM element.
+
+> both Interpolation and Property Binding uses expression to bind with.
+> Angular interpreter evaluates the expression to a value before assisting with interpolation or property Binding.
+
+Recomendations not to use Expressions:-
+> Cannot use Assignment Operators.
+> Cannot use new Keyword .
+> Cannot use multiple expression chaining with ';' .
+> Cannot access things from global namespace. (like Console,window ..etc)
+
+Recomendations to use Expressions:-
+> Should have no side-effects on the data or the state.
+> Should be simple and fast
+> Should be Idempotent --- gives same output all time.

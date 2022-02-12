@@ -1,0 +1,63 @@
+app-event-thumbnail :-----------------> will not show data and fill console with errors
+<div class="well hoverwell thumbnail">
+        <h2>{{event.name}}</h2>
+        <div>Date: {{event.date}}</div>
+        <div>Time: {{event.time}}</div>
+        <div>Price: ${{event.price}}</div>
+        <div>
+            <span>Location : {{event.location.address}}</span>
+            <span>&nbsp;</span>
+            <span>{{event.location.city}},{{event.location.country}}</span>
+        </div>
+        <button class="btn btn-primary" (click)="hasClicked()"> Click here</button>
+ </div>
+
+
+_______________________
+@Component(
+    {template:`
+        <div>
+            <h2>event-list component</h2>
+            <app-event-thumbnail *ngFor="let event of eventList"  (eventClick)="eventClickHandle($event)"></app-event-thumbnail>
+        </div>  
+        `
+    }
+)
+
+// removing [event] = "event" from the <app-event-thumbnail> will not pass any data to child component.
+
+export class ProfileComponent{
+    eventList = [
+    {
+      id: 1,
+      name: 'Angular Connect',
+      date: '9/26/2036',
+      time: '10:00 am',
+      price: 599.99,
+      imageUrl: '/assets/images/angularconnect-shield.png',
+      location: {
+        address: '1057 DT',
+        city: 'London',
+        country: 'England'
+      }];
+}
+
+________________________________
+Resolves:
+________________________________
+app-event-thumbnail :
+<div class="well hoverwell thumbnail">
+        <h2>{{event?.name}}</h2>
+        <div>Date: {{event?.date}}</div>
+        <div>Time: {{event?.time}}</div>
+        <div>Price: ${{event?.price}}</div>
+        <div>
+            <span>Location : {{event?.location.address}}</span>
+            <span>&nbsp;</span>
+            <span>{{event?.location.city}},{{event?.location.country}}</span>
+        </div>
+        <button class="btn btn-primary" (click)="hasClicked()"> Click here</button>
+ </div>
+
+******note
+ > ? is the Safe navigation operator. to be applied if the data in object in has possiblity of null

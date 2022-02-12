@@ -1,0 +1,13 @@
+app-event-thumbnail :-----------------> will not show data and fill console with errors if event any value is null.
+<div class="well hoverwell thumbnail">
+        <h2>{{event.name}}</h2>
+        <div>Date: {{event.date}}</div>
+        <div>Time: {{event.time}}</div>
+        <div>Price: ${{event.price}}</div>
+        <div *ngIf='event?.location'> --------------------------------------------> condition (if event.location is null than return false)
+            <span>Location : {{event.location.address}}</span>
+            <span>&nbsp;</span>
+            <span>{{event.location.city}},{{event.location.country}}</span>
+        </div>
+        <button class="btn btn-primary" (click)="hasClicked()"> Click here</button>
+</div>

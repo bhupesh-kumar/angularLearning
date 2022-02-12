@@ -1,0 +1,17 @@
+Dependency injection: it is a technique in which an object receives other objects that it depends on.
+
+
+@Component({
+    ...
+})
+
+class EventListComponent {
+    eventList;
+
+    let eventsService = new EventsService() --------------------> bound or mandate to get event data from EventService()
+    eventList = eventService.getEvents();
+______________________________________________OTHER WAY
+    constructor(private eventService: EventService){ ------------------------>  we are deciding 
+        eventList = eventService.getEvents();
+    }
+}

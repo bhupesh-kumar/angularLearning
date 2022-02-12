@@ -1,0 +1,21 @@
+@Component({
+    selector: 'order-list',
+    template: `
+                <div>
+                    <ol>
+                        <li *ngFor = "let item of items">{{item}} </li>
+                    <ol/>
+                </div>
+            `
+})
+export class Sample{
+    items = ["A","B","C","D"];
+
+}
+
+****note
+> * in *ngFor is a structural directive
+> Structural Directives actually changes the shape of the DOM.
+>  *ngFor is an structural directive because it is going to create elements of all the values in an array.
+> the local variable created by *ngFor is accessible by every thing inside the element it is in.
+

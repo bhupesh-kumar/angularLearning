@@ -1,0 +1,19 @@
+Angular Conceptual Model :
+
+Angular Component Hierarchy:
+    App
+        component1
+            subcomponent 1
+            subcomponent 2
+            subcomponent 3
+        component2
+        component3
+
+Angular Modules - ment to be containers that contains all the routes in the trees and identify the modules which can be loaded independently.
+
+Modules are only loaded if the user access the part of that module in the site.
+
+>If we make a service ,Directive ,component or pipe and register in the module .this will make those available in that perticular module except services ,
+>If you want to use those in other modules register it there.
+but services are provider registered in root injector so they are available accross angilar modules.
+

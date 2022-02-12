@@ -1,0 +1,61 @@
+@Component({
+    selector: 'order-list',
+______________________________________________ONE WAY    
+    template: `
+                <div>
+                    <ol>
+                        <li *ngFor = "let stage of Stages" [ngSwitch]="stage" [class.old]="stage=== 'old'" [class.young]="stage=== 'young'">
+                           {{stage}} &nbsp;:
+                             <span *ngSwitchCase="'old'">You are {{stage}} , Someone help him</span>
+                             <span *ngSwitchCase="'boy'">You are {{stage}} , be careful while playing</span>
+                             <span *ngSwitchCase="'young'">You are {{stage}} , wish you a great future</span>
+                             <span *ngSwitchDefault>you are just a kid</span>
+                        </li>
+                    <ol/>
+                </div>
+            `,
+
+______________________________________________OTHER WAY
+   template: `
+                <div>
+                    <ol>
+                        <li *ngFor = "let stage of Stages" [ngSwitch]="stage" [ngClass]="{old : stage=== 'old', young : stage=== 'young'}">
+                           {{stage}} &nbsp;:
+                             <span *ngSwitchCase="'old'">You are {{stage}} , Someone help him</span>
+                             <span *ngSwitchCase="'boy'">You are {{stage}} , be careful while playing</span>
+                             <span *ngSwitchCase="'young'">You are {{stage}} , wish you a great future</span>
+                             <span *ngSwitchDefault>you are just a kid</span>
+                        </li>
+                    <ol/>
+                </div>
+            `,
+________________________________OTHER WAY
+   template: `
+                <div>
+                    <ol>
+                        <li *ngFor = "let stage of Stages" [ngSwitch]="stage" [ngClass]="getStageClass()">
+                           {{stage}} &nbsp;:
+                             <span *ngSwitchCase="'old'">You are {{stage}} , Someone help him</span>
+                             <span *ngSwitchCase="'boy'">You are {{stage}} , be careful while playing</span>
+                             <span *ngSwitchCase="'young'">You are {{stage}} , wish you a great future</span>
+                             <span *ngSwitchDefault>you are just a kid</span>
+                        </li>
+                    <ol/>
+                </div>
+            `,
+_________________________________________________________
+    styles:[`
+        .old{color: green !important;}
+        .young{color: blue !important;}
+    `]        
+})
+export class Sample{
+    Stages = ["old","boy","young","kid"];
+
+
+    getStageClass(){
+        const isOld = this.stage === 'old';
+        const isYoung = this.stage === 'young';
+        return {old:isOld,young:isYoung};
+    }
+}

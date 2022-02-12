@@ -1,0 +1,12 @@
+app.module.ts containts:
+ @NgModule({
+     imports:[BrowserModule],
+     declarations:[AppComponent],
+     providers:[],
+     bootstrap:[AppComponent]
+ })
+
+> imports -> import all exports declaration of other module.
+> declarations -> to declare component, pipe and directive.
+> providers -> all the services for the application needed to be declared here.
+

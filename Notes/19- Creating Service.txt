@@ -1,0 +1,33 @@
+in terminal > ng generate service <path../serviceName>
+
+__sample : sample.service.ts___________________________________________________
+
+import { Injectable } from '@angular/core';
+
+declare let toastr:any;
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ToastrService {
+
+  constructor() { }
+
+  success(message:string,title:string){
+    toastr.success(message,title);
+  }
+}
+_________component.ts_________________________________________________________
+import { ToastrService } from '......';
+declare let toastr :any;
+
+eventList =[{name:clickEvent1},{name:clickEvent2},{name:clickEvent3},{name:clickEvent4},{name:clickEvent5}]
+
+clickHandler(message :string){
+    this.toastService.success(message,"Success");
+}
+
+_________component.html________________________________________________________
+<div *ngFor="let event of eventList">
+      <button  (click)="clickHandler(event.name)"></button>
+</div>

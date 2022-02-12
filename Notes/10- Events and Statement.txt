@@ -1,0 +1,32 @@
+@Component(
+    {
+        template: `
+            <h2>{{user.name}}</h2> ----------> interpolation
+            <img [src] = 'user.imageURl'/> --------------> Property Binding
+            <button (click)="doSomething()"></button> -----------> Event Binding
+        `
+    }
+)
+
+export class ProfileComponent{
+    user = {name : 'John Doe', imageUrl: 'img.com/profile.jpeg'}
+
+    doSomething(){
+
+    }
+}
+
+*****note
+
+Event Binding:- 
+This Event Binding is buinding the button's click event with components doSomething() method.
+
+
+Statement Restrictions : 
+> Not use Assignment Operators Except '='
+> Not use new Keywords
+> Not use Global Namespaces
+
+Statement recomendations :
+> Can have Side-effects
+> has to be Simple (doing complete business logic on templet is not recomendated)

@@ -1,0 +1,21 @@
+Bootstrapping is the process of getting a software development project moving from a standing start.
+
+>In angular bootstrap process starts with main.ts file 
+    (angular.json -> projects> <project name> > architect > build 
+        > options > main :  "src/main.ts")
+
+> main.ts containts :
+    platformBrowserDynamic().bootstrapModule(AppModule)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    AppModule points to './app/app.module.ts' contains:
+         @NgModule({bootstrap: [AppComponent]})
+                                ^^^^^^^^^^^^
+            AppComponent points to 'app.component.ts' contains:
+                @Component({
+                    selector: 'app-root',
+                    templateUrl: './app.component.html',
+                    styleUrls: ['./app.component.css']
+                    })
+
+>The above is the reason on running the server how the initial web page gets loaded.

@@ -1,0 +1,21 @@
+parent.component.html:
+
+<div>
+    <app-child-component [inData]="nameList[0]" ></app-child-component>
+</div>
+
+parent.component.ts:
+
+nameList = [{data:{name:'bhupesh',lastName:'sahu'}},{{data:{name:'priyanka',lastName:'patre'}}]
+
+
+child.component.html:
+<div>
+    <span>{{inData.name}}</span>
+</div>
+
+child.component.ts:
+
+@Input() inData: any;
+
+

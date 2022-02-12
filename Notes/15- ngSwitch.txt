@@ -1,0 +1,25 @@
+@Component({
+    selector: 'order-list',
+    template: `
+                <div>
+                    <ol>
+                        <li *ngFor = "let stage of Stages" [ngSwitch]="stage">
+                           {{stage}} &nbsp;:
+                             <span *ngSwitchCase="'old'">You are {{stage}} , Someone help him</span>
+                             <span *ngSwitchCase="'boy'">You are {{stage}} , be careful while playing</span>
+                             <span *ngSwitchCase="'young'">You are {{stage}} , wish you a great future</span>
+                             <span *ngSwitchDefault>you are just a kid</span>
+                        </li>
+                    <ol/>
+                </div>
+            `
+})
+export class Sample{
+    Stages = ["old","boy","young","kid"];
+
+}
+
+******note
+> [ngSwitch]="" ---- here you can set the expression which controls the condition (will be part of parent tag or element)
+> *ngSwitchCase=""  --- here you can specify what should be the expression value 
+> *ngSwitchDefault  --- here in the element specify what to show if no expression value is matched.

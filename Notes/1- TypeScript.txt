@@ -1,0 +1,79 @@
+*TypeScript*
+
+Static Typing :
+Allows us to specify datatypes to variables ,properties and parameters ,etc.
+
+in JS -
+let name
+let age
+let birthdate
+
+in TS-
+
+let name : string
+let age : number
+let birthDate :date
+______________________________________________________
+Interfaces:
+
+interface ICat {
+	name:string
+	age?:number // ? makes it optional to provide if removed its mandetory
+}
+
+let fluffy :ICat // gives compile time safety
+
+______________________________________________________
+
+Class Properties:
+
+class Cat{
+	name:string
+	constructor(name){
+		this.name =name
+	}
+}
+________________________________________________________
+
+Public and Private Accessibility
+
+class Cat{
+	name:string
+	constructor(name){
+		this.name =name
+	}
+
+speak(){console.log('My name is :',this.name)} // public accessible by components inside as well as outside the class.
+}
+
+class Cat{
+	private name:string
+	private speak(){console.log('My name is :',this.name)}
+}
+let fluffy = new Cat()
+console.log(fluffy.name) // compile time error
+fluffy.speak() // compile time error
+
+
+_________________________________________________________
+
+Simplified constructor 
+
+class Cat{
+	private name :string
+	private color : string
+	constructor(name,color){
+		this.name = name
+		this.color = color
+	}
+}
+
+
+class Cat{
+	constructor(private name,private color){
+	
+	}
+}
+
+
+
